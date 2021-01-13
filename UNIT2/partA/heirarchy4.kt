@@ -1,7 +1,7 @@
 fun main() {
     val squareCabin = SquareCabin(5)
     val roundHut = RoundHut(3)
-    val roundTower = RoundTower(4)
+    val roundTower = RoundTower(16,4)
 
     with(squareCabin) {
     println("\nSquare Cabin\n============")
@@ -39,7 +39,7 @@ open class RoundHut(residents: Int) : Dwelling(residents) {
     override val buildingMaterial = "Straw"
     override val capacity = 4
 }
-class RoundTower(residents: Int) : RoundHut(residents) {	//class inherited from an OPEN CLASS ROUNDHUT
+class RoundTower(residents: Int,val floors: Int) : RoundHut(residents) {	//class inherited from an OPEN CLASS ROUNDHUT
     override val buildingMaterial = "Stone"
-    override val capacity = 4
+    override val capacity = 4 * floors
 }
